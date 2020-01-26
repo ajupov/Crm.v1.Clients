@@ -17,6 +17,22 @@ jobs:
         with:
           dotnet-version: '3.1.100'
 
+      - name: Generate Nuget.config
+        run: |
+          echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>" > NuGet.config
+          echo "<configuration>" >> NuGet.config
+          echo "<packageSources>" >> NuGet.config
+          echo "<add key=\"nuget.org\" value=\"https://api.nuget.org/v3/index.json\" protocolVersion=\"3\" />" >> NuGet.config
+          echo "<add key=\"GPR\" value=\"{{ secrets.NUGET_SOURCE }}\" />" >> NuGet.config
+          echo "</packageSources>" >> NuGet.config
+          echo "<packageSourceCredentials>" >> NuGet.config
+          echo "<GPR>" >> NuGet.config
+          echo "<add key=\"Username\" value=\"{{ secrets.NUGET_USERNAME }}\" />" >> NuGet.config
+          echo "<add key=\"ClearTextPassword\" value=\"{{ secrets.NUGET_PASSWORD }}\" />" >> NuGet.config
+          echo "</GPR>" >> NuGet.config
+          echo "</packageSourceCredentials>" >> NuGet.config
+          echo "</configuration>" >> NuGet.config
+
       - name: Generate package
         run: dotnet pack --configuration Release
 
