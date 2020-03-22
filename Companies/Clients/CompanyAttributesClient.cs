@@ -45,12 +45,12 @@ namespace Crm.v1.Clients.Companies.Clients
                 UriBuilder.Combine(_url, "GetList"), ids, accessToken, ct);
         }
 
-        public Task<CompanyAttributeChangeGetPagedListResponse> GetPagedListAsync(
+        public Task<CompanyAttributeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
             CompanyAttributeGetPagedListRequest request,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<CompanyAttributeChangeGetPagedListResponse>(
+            return _httpClientFactory.PostJsonAsync<CompanyAttributeGetPagedListResponse>(
                 UriBuilder.Combine(_url, "GetPagedList"), request, accessToken, ct);
         }
 

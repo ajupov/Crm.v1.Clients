@@ -32,7 +32,7 @@ namespace Crm.v1.Clients.Activities.Clients
 
         public Task CreateAsync(string accessToken, ActivityComment comment, CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Create"), comment, accessToken, ct);
+            return _httpClientFactory.PutJsonAsync(UriBuilder.Combine(_url, "Create"), comment, accessToken, ct);
         }
     }
 }

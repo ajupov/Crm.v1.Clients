@@ -20,7 +20,7 @@ namespace Crm.v1.Clients.Companies.Clients
             IEnumerable<Guid> ids,
             CancellationToken ct = default);
 
-        Task<CompanyAttributeChangeGetPagedListResponse> GetPagedListAsync(
+        Task<CompanyAttributeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
             CompanyAttributeGetPagedListRequest request,
             CancellationToken ct = default);
