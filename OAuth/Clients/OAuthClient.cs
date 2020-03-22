@@ -6,8 +6,8 @@ using Ajupov.Utils.All.Http;
 using Ajupov.Utils.All.String;
 using Crm.v1.Clients.OAuth.Mappers;
 using Crm.v1.Clients.OAuth.Models;
-using Crm.v1.Clients.OAuth.RequestParameters;
-using Crm.v1.Clients.OAuth.ResponseParameters;
+using Crm.v1.Clients.OAuth.Requests;
+using Crm.v1.Clients.OAuth.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
@@ -31,7 +31,7 @@ namespace Crm.v1.Clients.OAuth.Clients
 
         public async Task<Tokens> GetTokensAsync(string username, string password, CancellationToken ct = default)
         {
-            var request = new TokenRequestParameter
+            var request = new TokenRequest
             {
                 grant_type = PasswordGrandType,
                 client_id = _clientId,
@@ -39,7 +39,7 @@ namespace Crm.v1.Clients.OAuth.Clients
                 password = password
             };
 
-            var response = await _httpClientFactory.PostFormDataAsync<TokenResponseParameter>(
+            var response = await _httpClientFactory.PostFormDataAsync<TokenResponse>(
                 UriBuilder.Combine(_url, "Token"), request, ct: ct);
 
             if (!response.error.IsEmpty())
@@ -52,14 +52,14 @@ namespace Crm.v1.Clients.OAuth.Clients
 
         public async Task<Tokens> RefreshTokensAsync(string refreshToken, CancellationToken ct = default)
         {
-            var request = new TokenRequestParameter
+            var request = new TokenRequest
             {
                 grant_type = RefreshTokenGrandType,
                 client_id = _clientId,
                 refresh_token = refreshToken
             };
 
-            var response = await _httpClientFactory.PostFormDataAsync<TokenResponseParameter>(
+            var response = await _httpClientFactory.PostFormDataAsync<TokenResponse>(
                 UriBuilder.Combine(_url, "Token"), request, ct: ct);
 
             if (!response.error.IsEmpty())

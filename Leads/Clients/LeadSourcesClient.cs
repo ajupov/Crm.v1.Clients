@@ -5,7 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
 using Crm.v1.Clients.Leads.Models;
-using Crm.v1.Clients.Leads.RequestParameters;
+using Crm.v1.Clients.Leads.Requests;
+using Crm.v1.Clients.Leads.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
@@ -36,33 +37,33 @@ namespace Crm.v1.Clients.Leads.Clients
                 UriBuilder.Combine(_url, "GetList"), ids, accessToken, ct);
         }
 
-        public Task<List<LeadSource>> GetPagedListAsync(
+        public Task<LeadSourceGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            LeadSourceGetPagedListRequestParameter request,
+            LeadSourceGetPagedListRequest request,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<LeadSource>>(
+            return _httpClientFactory.PostJsonAsync<LeadSourceGetPagedListResponse>(
                 UriBuilder.Combine(_url, "GetPagedList"), request, accessToken, ct);
         }
 
         public Task<Guid> CreateAsync(string accessToken, LeadSource source, CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), source, accessToken, ct);
+            return _httpClientFactory.PutJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), source, accessToken, ct);
         }
 
         public Task UpdateAsync(string accessToken, LeadSource source, CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Update"), source, accessToken, ct);
+            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Update"), source, accessToken, ct);
         }
 
         public Task DeleteAsync(string accessToken, IEnumerable<Guid> ids, CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Delete"), ids, accessToken, ct);
+            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Delete"), ids, accessToken, ct);
         }
 
         public Task RestoreAsync(string accessToken, IEnumerable<Guid> ids, CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Restore"), ids, accessToken, ct);
+            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Restore"), ids, accessToken, ct);
         }
     }
 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Crm.v1.Clients.Products.Models;
-using Crm.v1.Clients.Products.RequestParameters;
+using Crm.v1.Clients.Products.Requests;
+using Crm.v1.Clients.Products.Responses;
 
 namespace Crm.v1.Clients.Products.Clients
 {
@@ -15,9 +16,9 @@ namespace Crm.v1.Clients.Products.Clients
 
         Task<List<Product>> GetListAsync(string accessToken, IEnumerable<Guid> ids, CancellationToken ct = default);
 
-        Task<List<Product>> GetPagedListAsync(
+        Task<ProductGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            ProductGetPagedListRequestParameter request,
+            ProductGetPagedListRequest request,
             CancellationToken ct = default);
 
         Task<Guid> CreateAsync(string accessToken, Product product, CancellationToken ct = default);

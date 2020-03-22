@@ -1,16 +1,15 @@
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Activities.Models;
-using Crm.v1.Clients.Activities.RequestParameters;
+using Crm.v1.Clients.Activities.Requests;
+using Crm.v1.Clients.Activities.Responses;
 
 namespace Crm.v1.Clients.Activities.Clients
 {
     public interface IActivityTypeChangesClient
     {
-        Task<List<ActivityTypeChange>> GetPagedListAsync(
+        Task<ActivityTypeChangeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            ActivityTypeChangeGetPagedListRequestParameter request,
+            ActivityTypeChangeGetPagedListRequest request,
             CancellationToken ct = default);
     }
 }

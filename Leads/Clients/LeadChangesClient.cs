@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
-using Crm.v1.Clients.Leads.Models;
-using Crm.v1.Clients.Leads.RequestParameters;
+using Crm.v1.Clients.Leads.Requests;
+using Crm.v1.Clients.Leads.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
@@ -21,12 +20,12 @@ namespace Crm.v1.Clients.Leads.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<List<LeadChange>> GetPagedListAsync(
+        public Task<LeadChangeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            LeadChangeGetPagedListRequestParameter request,
+            LeadChangeGetPagedListRequest request,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<LeadChange>>(
+            return _httpClientFactory.PostJsonAsync<LeadChangeGetPagedListResponse>(
                 UriBuilder.Combine(_url, "GetPagedList"), request, accessToken, ct);
         }
     }

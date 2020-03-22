@@ -1,11 +1,11 @@
 ﻿using Crm.v1.Clients.OAuth.Models;
-using Crm.v1.Clients.OAuth.ResponseParameters;
+using Crm.v1.Clients.OAuth.Responses;
 
 namespace Crm.v1.Clients.OAuth.Mappers
 {
     public static class OAuthMapper
     {
-        public static Tokens Map(this TokenResponseParameter response)
+        public static Tokens Map(this TokenResponse response)
         {
             return new Tokens
             {

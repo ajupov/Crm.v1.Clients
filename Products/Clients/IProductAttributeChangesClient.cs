@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Products.Models;
-using Crm.v1.Clients.Products.RequestParameters;
+using Crm.v1.Clients.Products.Requests;
+using Crm.v1.Clients.Products.Responses;
 
 namespace Crm.v1.Clients.Products.Clients
 {
     public interface IProductAttributeChangesClient
     {
-        Task<List<ProductAttributeChange>> GetPagedListAsync(
+        Task<ProductAttributeChangeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            ProductAttributeChangeGetPagedListRequestParameter request,
+            ProductAttributeChangeGetPagedListRequest request,
             CancellationToken ct = default);
     }
 }

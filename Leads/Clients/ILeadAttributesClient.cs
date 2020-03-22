@@ -4,7 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Crm.Common.All.Types.AttributeType;
 using Crm.v1.Clients.Leads.Models;
-using Crm.v1.Clients.Leads.RequestParameters;
+using Crm.v1.Clients.Leads.Requests;
+using Crm.v1.Clients.Leads.Responses;
 
 namespace Crm.v1.Clients.Leads.Clients
 {
@@ -19,9 +20,9 @@ namespace Crm.v1.Clients.Leads.Clients
             IEnumerable<Guid> ids,
             CancellationToken ct = default);
 
-        Task<List<LeadAttribute>> GetPagedListAsync(
+        Task<LeadAttributeGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            LeadAttributeGetPagedListRequestParameter request,
+            LeadAttributeGetPagedListRequest request,
             CancellationToken ct = default);
 
         Task<Guid> CreateAsync(string accessToken, LeadAttribute attribute, CancellationToken ct = default);

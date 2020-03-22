@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
 using Crm.v1.Clients.Contacts.Models;
-using Crm.v1.Clients.Contacts.RequestParameters;
+using Crm.v1.Clients.Contacts.Requests;
+using Crm.v1.Clients.Contacts.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
@@ -21,12 +21,12 @@ namespace Crm.v1.Clients.Contacts.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<List<ContactComment>> GetPagedListAsync(
+        public Task<ContactCommentGetPagedListResponse> GetPagedListAsync(
             string accessToken,
-            ContactCommentGetPagedListRequestParameter request,
+            ContactCommentGetPagedListRequest request,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<ContactComment>>(
+            return _httpClientFactory.PostJsonAsync<ContactCommentGetPagedListResponse>(
                 UriBuilder.Combine(_url, "GetPagedList"), request, accessToken, ct);
         }
 
