@@ -3,6 +3,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <PackageVersion>2.0.0</PackageVersion>
         <Authors>U. Ayupov</Authors>
+        <RepositoryUrl>https://github.com/ajupov/Crm.v1.Clients.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Ajupov.Utils.All" Version="1.3.1" />
