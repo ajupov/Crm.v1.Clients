@@ -2,7 +2,7 @@
 {
     public static class ClientsDefaults
     {
-        public const string ApiHost = "http://api.litecrm.org";
-        public const string IdentityHost = "http://identity.litecrm.org";
+        public const string ApiHost = "https://api.litecrm.org";
+        public const string IdentityHost = "https://identity.litecrm.org";
     }
 }
