@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Crm.v1.Clients.Contacts.Models;
+using Crm.V1.Clients.Contacts.Models;
 
-namespace Crm.v1.Clients.Contacts.Responses
+namespace Crm.V1.Clients.Contacts.Responses
 {
     public class ContactChangeGetPagedListResponse
     {

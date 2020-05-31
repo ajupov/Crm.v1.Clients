@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Crm.v1.Clients.Leads.Models;
+using Crm.V1.Clients.Leads.Models;
 
-namespace Crm.v1.Clients.Leads.Responses
+namespace Crm.V1.Clients.Leads.Responses
 {
     public class LeadSourceChangeGetPagedListResponse
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Crm.Common.All.Types.AttributeType;
 
-namespace Crm.v1.Clients.Activities.Models
+namespace Crm.V1.Clients.Activities.Models
 {
     public class ActivityAttribute
     {

@@ -1,3 +1,3 @@
-# Crm.v1.Clients
+# Crm.V1.Clients
 
 API clients for https://litecrm.org

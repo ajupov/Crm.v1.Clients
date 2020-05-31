@@ -1,7 +1,7 @@
 ﻿using System;
 using Crm.Common.All.Types.AttributeType;
 
-namespace Crm.v1.Clients.Companies.Models
+namespace Crm.V1.Clients.Companies.Models
 {
     public class CompanyAttribute
     {

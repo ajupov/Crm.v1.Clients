@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Crm.Common.All.Types.AttributeType;
-using Crm.v1.Clients.Activities.Models;
-using Crm.v1.Clients.Activities.Requests;
-using Crm.v1.Clients.Activities.Responses;
+using Crm.V1.Clients.Activities.Models;
+using Crm.V1.Clients.Activities.Requests;
+using Crm.V1.Clients.Activities.Responses;
 
-namespace Crm.v1.Clients.Activities.Clients
+namespace Crm.V1.Clients.Activities.Clients
 {
     public interface IActivityAttributesClient
     {

@@ -4,13 +4,13 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
-using Crm.v1.Clients.Deals.Models;
-using Crm.v1.Clients.Deals.Requests;
-using Crm.v1.Clients.Deals.Responses;
+using Crm.V1.Clients.Deals.Models;
+using Crm.V1.Clients.Deals.Requests;
+using Crm.V1.Clients.Deals.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
-namespace Crm.v1.Clients.Deals.Clients
+namespace Crm.V1.Clients.Deals.Clients
 {
     public class DealStatusesClient : IDealStatusesClient
     {

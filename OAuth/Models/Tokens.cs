@@ -1,4 +1,4 @@
-﻿namespace Crm.v1.Clients.OAuth.Models
+﻿namespace Crm.V1.Clients.OAuth.Models
 {
     public class Tokens
     {

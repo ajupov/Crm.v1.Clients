@@ -1,6 +1,6 @@
 using System;
 
-namespace Crm.v1.Clients.Deals.Requests
+namespace Crm.V1.Clients.Deals.Requests
 {
     public class DealAttributeChangeGetPagedListRequest
     {

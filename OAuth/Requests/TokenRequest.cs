@@ -1,4 +1,4 @@
-namespace Crm.v1.Clients.OAuth.Requests
+namespace Crm.V1.Clients.OAuth.Requests
 {
     public class TokenRequest
     {

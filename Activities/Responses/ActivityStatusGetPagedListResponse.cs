@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Crm.v1.Clients.Activities.Models;
+using Crm.V1.Clients.Activities.Models;
 
-namespace Crm.v1.Clients.Activities.Responses
+namespace Crm.V1.Clients.Activities.Responses
 {
     public class ActivityStatusGetPagedListResponse
     {

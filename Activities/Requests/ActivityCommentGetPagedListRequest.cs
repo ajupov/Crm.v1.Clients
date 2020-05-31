@@ -1,6 +1,6 @@
 using System;
 
-namespace Crm.v1.Clients.Activities.Requests
+namespace Crm.V1.Clients.Activities.Requests
 {
     public class ActivityCommentGetPagedListRequest
     {

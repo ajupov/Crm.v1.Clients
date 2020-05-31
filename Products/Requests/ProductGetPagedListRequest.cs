@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Crm.v1.Clients.Products.Models;
+using Crm.V1.Clients.Products.Models;
 
-namespace Crm.v1.Clients.Products.Requests
+namespace Crm.V1.Clients.Products.Requests
 {
     public class ProductGetPagedListRequest
     {

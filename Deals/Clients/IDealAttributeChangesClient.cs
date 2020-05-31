@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Deals.Requests;
-using Crm.v1.Clients.Deals.Responses;
+using Crm.V1.Clients.Deals.Requests;
+using Crm.V1.Clients.Deals.Responses;
 
-namespace Crm.v1.Clients.Deals.Clients
+namespace Crm.V1.Clients.Deals.Clients
 {
     public interface IDealAttributeChangesClient
     {

@@ -1,13 +1,13 @@
-﻿using Crm.v1.Clients.Activities.Clients;
-using Crm.v1.Clients.Companies.Clients;
-using Crm.v1.Clients.Contacts.Clients;
-using Crm.v1.Clients.Deals.Clients;
-using Crm.v1.Clients.Leads.Clients;
-using Crm.v1.Clients.OAuth.Clients;
-using Crm.v1.Clients.Products.Clients;
+﻿using Crm.V1.Clients.Activities.Clients;
+using Crm.V1.Clients.Companies.Clients;
+using Crm.V1.Clients.Contacts.Clients;
+using Crm.V1.Clients.Deals.Clients;
+using Crm.V1.Clients.Leads.Clients;
+using Crm.V1.Clients.OAuth.Clients;
+using Crm.V1.Clients.Products.Clients;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Crm.v1.Clients
+namespace Crm.V1.Clients
 {
     public static class ClientsExtensions
     {

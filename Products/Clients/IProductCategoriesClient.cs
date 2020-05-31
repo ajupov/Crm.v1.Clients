@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Products.Models;
-using Crm.v1.Clients.Products.Requests;
-using Crm.v1.Clients.Products.Responses;
+using Crm.V1.Clients.Products.Models;
+using Crm.V1.Clients.Products.Requests;
+using Crm.V1.Clients.Products.Responses;
 
-namespace Crm.v1.Clients.Products.Clients
+namespace Crm.V1.Clients.Products.Clients
 {
     public interface IProductCategoriesClient
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crm.v1.Clients.Deals.Models
+namespace Crm.V1.Clients.Deals.Models
 {
     public class DealAttributeChange
     {

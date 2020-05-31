@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Crm.v1.Clients.Contacts.Requests
+namespace Crm.V1.Clients.Contacts.Requests
 {
     public class ContactGetPagedListRequest
     {

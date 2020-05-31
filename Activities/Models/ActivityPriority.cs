@@ -1,4 +1,4 @@
-namespace Crm.v1.Clients.Activities.Models
+namespace Crm.V1.Clients.Activities.Models
 {
     public enum ActivityPriority : byte
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Crm.v1.Clients.Deals.Requests
+namespace Crm.V1.Clients.Deals.Requests
 {
     public class DealGetPagedListRequest
     {

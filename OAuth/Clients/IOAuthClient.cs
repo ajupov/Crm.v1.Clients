@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.OAuth.Models;
+using Crm.V1.Clients.OAuth.Models;
 
-namespace Crm.v1.Clients.OAuth.Clients
+namespace Crm.V1.Clients.OAuth.Clients
 {
     public interface IOAuthClient
     {

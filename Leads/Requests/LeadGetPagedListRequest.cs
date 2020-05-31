@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Crm.v1.Clients.Leads.Requests
+namespace Crm.V1.Clients.Leads.Requests
 {
     public class LeadGetPagedListRequest
     {

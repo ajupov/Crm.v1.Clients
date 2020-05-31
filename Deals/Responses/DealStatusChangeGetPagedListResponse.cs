@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Crm.v1.Clients.Deals.Models;
+using Crm.V1.Clients.Deals.Models;
 
-namespace Crm.v1.Clients.Deals.Responses
+namespace Crm.V1.Clients.Deals.Responses
 {
     public class DealStatusChangeGetPagedListResponse
     {

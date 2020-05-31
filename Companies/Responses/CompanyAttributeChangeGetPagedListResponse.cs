@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Crm.v1.Clients.Companies.Models;
+using Crm.V1.Clients.Companies.Models;
 
-namespace Crm.v1.Clients.Companies.Responses
+namespace Crm.V1.Clients.Companies.Responses
 {
     public class CompanyAttributeChangeGetPagedListResponse
     {

@@ -1,4 +1,4 @@
-namespace Crm.v1.Clients.OAuth.Responses
+namespace Crm.V1.Clients.OAuth.Responses
 {
     public class TokenResponse
     {

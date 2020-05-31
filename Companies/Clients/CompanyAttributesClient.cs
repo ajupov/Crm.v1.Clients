@@ -5,13 +5,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
 using Crm.Common.All.Types.AttributeType;
-using Crm.v1.Clients.Companies.Models;
-using Crm.v1.Clients.Companies.Requests;
-using Crm.v1.Clients.Companies.Responses;
+using Crm.V1.Clients.Companies.Models;
+using Crm.V1.Clients.Companies.Requests;
+using Crm.V1.Clients.Companies.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
-namespace Crm.v1.Clients.Companies.Clients
+namespace Crm.V1.Clients.Companies.Clients
 {
     public class CompanyAttributesClient : ICompanyAttributesClient
     {

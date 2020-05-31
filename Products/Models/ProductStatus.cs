@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crm.v1.Clients.Products.Models
+namespace Crm.V1.Clients.Products.Models
 {
     public class ProductStatus
     {

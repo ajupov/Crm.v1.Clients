@@ -1,7 +1,7 @@
-﻿using Crm.v1.Clients.OAuth.Models;
-using Crm.v1.Clients.OAuth.Responses;
+﻿using Crm.V1.Clients.OAuth.Models;
+using Crm.V1.Clients.OAuth.Responses;
 
-namespace Crm.v1.Clients.OAuth.Mappers
+namespace Crm.V1.Clients.OAuth.Mappers
 {
     public static class OAuthMapper
     {

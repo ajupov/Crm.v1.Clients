@@ -4,20 +4,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
 using Ajupov.Utils.All.String;
-using Crm.v1.Clients.OAuth.Mappers;
-using Crm.v1.Clients.OAuth.Models;
-using Crm.v1.Clients.OAuth.Requests;
-using Crm.v1.Clients.OAuth.Responses;
+using Crm.V1.Clients.OAuth.Mappers;
+using Crm.V1.Clients.OAuth.Models;
+using Crm.V1.Clients.OAuth.Requests;
+using Crm.V1.Clients.OAuth.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
-namespace Crm.v1.Clients.OAuth.Clients
+namespace Crm.V1.Clients.OAuth.Clients
 {
     public class OAuthClient : IOAuthClient
     {
-        private readonly string _clientId;
         private const string PasswordGrandType = "password";
         private const string RefreshTokenGrandType = "refresh_token";
+
+        private readonly string _clientId;
 
         private readonly string _url;
         private readonly IHttpClientFactory _httpClientFactory;

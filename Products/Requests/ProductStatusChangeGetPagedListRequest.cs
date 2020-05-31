@@ -1,6 +1,6 @@
 using System;
 
-namespace Crm.v1.Clients.Products.Requests
+namespace Crm.V1.Clients.Products.Requests
 {
     public class ProductStatusChangeGetPagedListRequest
     {
