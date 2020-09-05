@@ -1,9 +1,7 @@
 # Crm.V1.Clients
-
-API clients for https://litecrm.org
+API clients for [Lite CRM](https://litecrm.org)
 
 ## Usage
-
 ```
 public static class Program
 {
