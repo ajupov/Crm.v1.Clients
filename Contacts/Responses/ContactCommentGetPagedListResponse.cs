@@ -5,8 +5,6 @@ namespace Crm.V1.Clients.Contacts.Responses
 {
     public class ContactCommentGetPagedListResponse
     {
-        public int TotalCount { get; set; }
-
         public List<ContactComment> Comments { get; set; }
     }
 }
