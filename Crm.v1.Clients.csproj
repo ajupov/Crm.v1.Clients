@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <PackageVersion>2.2.3</PackageVersion>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageVersion>2.3.0</PackageVersion>
         <Authors>U. Ayupov</Authors>
         <RepositoryUrl>https://github.com/ajupov/Crm.V1.Clients.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -10,7 +10,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Ajupov.Utils.All" Version="1.5.0" />
-        <PackageReference Include="Crm.Common.All" Version="1.3.0" />
+        <PackageReference Include="Crm.Common.All" Version="1.4.0" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
     </ItemGroup>
 </Project>
