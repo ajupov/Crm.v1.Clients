@@ -1,15 +1,22 @@
-namespace Crm.V1.Clients.OAuth.Requests
+using System.Text.Json.Serialization;
+
+namespace Crm.v1.Clients.OAuth.Requests
 {
     public class TokenRequest
     {
-        public string grant_type { get; set; }
+        [JsonPropertyName("grant_type")]
+        public string GrantType { get; set; }
 
-        public string client_id { get; set; }
+        [JsonPropertyName("client_id")]
+        public string ClientId { get; set; }
 
-        public string username { get; set; }
+        [JsonPropertyName("username")]
+        public string Username { get; set; }
 
-        public string password { get; set; }
+        [JsonPropertyName("password")]
+        public string Password { get; set; }
 
-        public string refresh_token { get; set; }
+        [JsonPropertyName("refresh_token")]
+        public string RefreshToken { get; set; }
     }
 }

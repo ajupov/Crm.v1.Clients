@@ -1,15 +1,22 @@
-namespace Crm.V1.Clients.OAuth.Responses
+using System.Text.Json.Serialization;
+
+namespace Crm.v1.Clients.OAuth.Responses
 {
     public class TokenResponse
     {
-        public string access_token { get; set; }
+        [JsonPropertyName("access_token")]
+        public string AccessToken { get; set; }
 
-        public string refresh_token { get; set; }
+        [JsonPropertyName("refresh_token")]
+        public string RefreshToken { get; set; }
 
-        public string token_type { get; set; }
+        [JsonPropertyName("token_type")]
+        public string TokenType { get; set; }
 
-        public int expires_in { get; set; }
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
 
-        public string error { get; set; }
+        [JsonPropertyName("error")]
+        public string Error { get; set; }
     }
 }

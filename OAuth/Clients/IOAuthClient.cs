@@ -1,13 +1,14 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
-using Crm.V1.Clients.OAuth.Models;
+using Crm.v1.Clients.OAuth.Responses;
 
-namespace Crm.V1.Clients.OAuth.Clients
+namespace Crm.v1.Clients.OAuth.Clients
 {
     public interface IOAuthClient
     {
-        Task<Tokens> GetTokensAsync(string username, string password, CancellationToken ct = default);
+        Task<TokenResponse> GetTokensAsync(string username, string password, Dictionary<string, string> headers, CancellationToken ct = default);
 
-        Task<Tokens> RefreshTokensAsync(string refreshToken, CancellationToken ct = default);
+        Task<TokenResponse> RefreshTokensAsync(string refreshToken, Dictionary<string, string> headers, CancellationToken ct = default);
     }
 }

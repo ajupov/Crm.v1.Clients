@@ -1,25 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
 using Ajupov.Utils.All.String;
-using Crm.V1.Clients.OAuth.Mappers;
-using Crm.V1.Clients.OAuth.Models;
-using Crm.V1.Clients.OAuth.Requests;
-using Crm.V1.Clients.OAuth.Responses;
+using Crm.v1.Clients.OAuth.Requests;
+using Crm.v1.Clients.OAuth.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
-namespace Crm.V1.Clients.OAuth.Clients
+namespace Crm.v1.Clients.OAuth.Clients
 {
     public class OAuthClient : IOAuthClient
     {
-        private const string PasswordGrandType = "password";
-        private const string RefreshTokenGrandType = "refresh_token";
-
         private readonly string _clientId;
-
         private readonly string _url;
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -30,45 +25,48 @@ namespace Crm.V1.Clients.OAuth.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<Tokens> GetTokensAsync(string username, string password, CancellationToken ct = default)
+        public async Task<TokenResponse> GetTokensAsync(
+            string username,
+            string password,
+            Dictionary<string, string> headers, CancellationToken ct = default)
         {
             var request = new TokenRequest
             {
-                grant_type = PasswordGrandType,
-                client_id = _clientId,
-                username = username,
-                password = password
+                GrantType = "password",
+                ClientId = _clientId,
+                Username = username,
+                Password = password
             };
 
             var response = await _httpClientFactory.PostFormDataAsync<TokenResponse>(
                 UriBuilder.Combine(_url, "Token"), request, ct: ct);
 
-            if (!response.error.IsEmpty())
+            if (!response.Error.IsEmpty())
             {
-                throw new Exception(response.error);
+                throw new Exception(response.Error);
             }
 
-            return response.Map();
+            return response;
         }
 
-        public async Task<Tokens> RefreshTokensAsync(string refreshToken, CancellationToken ct = default)
+        public async Task<TokenResponse> RefreshTokensAsync(string refreshToken, Dictionary<string, string> headers, CancellationToken ct = default)
         {
             var request = new TokenRequest
             {
-                grant_type = RefreshTokenGrandType,
-                client_id = _clientId,
-                refresh_token = refreshToken
+                GrantType = "refresh_token",
+                ClientId = _clientId,
+                RefreshToken = refreshToken
             };
 
             var response = await _httpClientFactory.PostFormDataAsync<TokenResponse>(
                 UriBuilder.Combine(_url, "Token"), request, ct: ct);
 
-            if (!response.error.IsEmpty())
+            if (!response.Error.IsEmpty())
             {
-                throw new Exception(response.error);
+                throw new Exception(response.Error);
             }
 
-            return response.Map();
+            return response;
         }
     }
 }

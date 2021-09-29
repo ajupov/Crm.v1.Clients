@@ -1,4 +1,4 @@
-﻿namespace Crm.V1.Clients
+﻿namespace Crm.v1.Clients
 {
     public static class ClientsDefaults
     {

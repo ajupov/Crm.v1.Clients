@@ -1,13 +1,11 @@
-﻿using Crm.V1.Clients.Activities.Clients;
-using Crm.V1.Clients.Companies.Clients;
-using Crm.V1.Clients.Contacts.Clients;
-using Crm.V1.Clients.Deals.Clients;
-using Crm.V1.Clients.Leads.Clients;
-using Crm.V1.Clients.OAuth.Clients;
-using Crm.V1.Clients.Products.Clients;
+﻿using Crm.v1.Clients.Clients.Customers.Clients;
+using Crm.v1.Clients.Clients.Orders.Clients;
+using Crm.v1.Clients.Clients.Products.Clients;
+using Crm.v1.Clients.Clients.Tasks.Clients;
+using Crm.v1.Clients.OAuth.Clients;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Crm.V1.Clients
+namespace Crm.v1.Clients
 {
     public static class ClientsExtensions
     {
@@ -37,16 +35,6 @@ namespace Crm.V1.Clients
                 .AddSingleton<IActivityTypesClient, ActivityTypesClient>()
                 .AddSingleton<IActivityTypeChangesClient, ActivityTypeChangesClient>()
                 .AddSingleton<IActivityCommentsClient, ActivityCommentsClient>()
-                .AddSingleton<ICompaniesClient, CompaniesClient>()
-                .AddSingleton<ICompanyChangesClient, CompanyChangesClient>()
-                .AddSingleton<ICompanyAttributesClient, CompanyAttributesClient>()
-                .AddSingleton<ICompanyAttributeChangesClient, CompanyAttributeChangesClient>()
-                .AddSingleton<ICompanyCommentsClient, CompanyCommentsClient>()
-                .AddSingleton<IContactsClient, ContactsClient>()
-                .AddSingleton<IContactChangesClient, ContactChangesClient>()
-                .AddSingleton<IContactAttributesClient, ContactAttributesClient>()
-                .AddSingleton<IContactAttributeChangesClient, ContactAttributeChangesClient>()
-                .AddSingleton<IContactCommentsClient, ContactCommentsClient>()
                 .AddSingleton<IDealsClient, DealsClient>()
                 .AddSingleton<IDealChangesClient, DealChangesClient>()
                 .AddSingleton<IDealAttributesClient, DealAttributesClient>()
