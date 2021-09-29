@@ -55,7 +55,7 @@ namespace Crm.v1.Clients.Clients.Products.Clients
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), category, headers, ct);
+            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), category, headers, ct);
         }
 
         public Task UpdateAsync(

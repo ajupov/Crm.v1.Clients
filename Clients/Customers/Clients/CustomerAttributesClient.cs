@@ -4,63 +4,62 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
-using Crm.v1.Clients.Clients.Products.Models;
-using Crm.v1.Clients.Clients.Products.Requests;
-using Crm.v1.Clients.Clients.Products.Responses;
+using Crm.v1.Clients.Clients.Customers.Models;
+using Crm.v1.Clients.Clients.Customers.Requests;
+using Crm.v1.Clients.Clients.Customers.Responses;
 using Microsoft.Extensions.Options;
 using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
-namespace Crm.v1.Clients.Clients.Products.Clients
+namespace Crm.v1.Clients.Clients.Customers.Clients
 {
-    public class ProductAttributesClient : IProductAttributesClient
+    public class CustomerAttributesClient : ICustomerAttributesClient
     {
         private readonly string _url;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ProductAttributesClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public CustomerAttributesClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "Products/Attributes/v1");
+            _url = UriBuilder.Combine(options.Value.ApiHost, "Customers/Attributes/v1");
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<ProductAttribute> GetAsync(
+        public Task<CustomerAttribute> GetAsync(
             Guid id,
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.GetAsync<ProductAttribute>(
+            return _httpClientFactory.GetAsync<CustomerAttribute>(
                 UriBuilder.Combine(_url, "Get"), new { id }, headers, ct);
         }
 
-        public Task<List<ProductAttribute>> GetListAsync(
+        public Task<List<CustomerAttribute>> GetListAsync(
             IEnumerable<Guid> ids,
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<ProductAttribute>>(
+            return _httpClientFactory.PostJsonAsync<List<CustomerAttribute>>(
                 UriBuilder.Combine(_url, "GetList"), ids, headers, ct);
         }
 
-        public Task<ProductAttributeGetPagedListResponse> GetPagedListAsync(
-            ProductAttributeGetPagedListRequest request,
+        public Task<CustomerAttributeGetPagedListResponse> GetPagedListAsync(
+            CustomerAttributeGetPagedListRequest request,
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<ProductAttributeGetPagedListResponse>(
+            return _httpClientFactory.PostJsonAsync<CustomerAttributeGetPagedListResponse>(
                 UriBuilder.Combine(_url, "GetPagedList"), request, headers, ct);
         }
 
         public Task<Guid> CreateAsync(
-            ProductAttribute attribute,
+            CustomerAttribute attribute,
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<Guid>(
-                UriBuilder.Combine(_url, "Create"), attribute, headers, ct);
+            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), attribute, headers, ct);
         }
 
         public Task UpdateAsync(
-            ProductAttribute attribute,
+            CustomerAttribute attribute,
             Dictionary<string, string> headers,
             CancellationToken ct = default)
         {

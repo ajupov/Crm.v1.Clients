@@ -38,7 +38,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Requests
 
         public List<Guid> StatusIds { get; set; }
 
-        public List<Guid> LeadIds { get; set; }
+        public List<Guid> CustomerIds { get; set; }
 
         public List<Guid> CompanyIds { get; set; }
 

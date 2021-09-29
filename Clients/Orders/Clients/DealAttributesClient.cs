@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http;
-using Crm.Common.All.Types.AttributeType;
 using Crm.v1.Clients.Clients.Orders.Models;
 using Crm.v1.Clients.Clients.Orders.Requests;
 using Crm.v1.Clients.Clients.Orders.Responses;
@@ -24,12 +23,6 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<Dictionary<string, AttributeType>> GetTypesAsync(Dictionary<string, string> headers, CancellationToken ct = default)
-        {
-            return _httpClientFactory.GetAsync<Dictionary<string, AttributeType>>(
-                UriBuilder.Combine(_url, "GetTypes"), null, accessToken, ct);
-        }
-
         public Task<DealAttribute> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default)
         {
             return _httpClientFactory.GetAsync<DealAttribute>(
@@ -37,7 +30,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
         }
 
         public Task<List<DealAttribute>> GetListAsync(
-            
+
             IEnumerable<Guid> ids,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -46,7 +39,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
         }
 
         public Task<DealAttributeGetPagedListResponse> GetPagedListAsync(
-            
+
             DealAttributeGetPagedListRequest request,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -56,7 +49,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
 
         public Task<Guid> CreateAsync(DealAttribute attribute, Dictionary<string, string> headers, CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync<Guid>(
+            return _httpClientFactory.PostJsonAsync<Guid>(
                 UriBuilder.Combine(_url, "Create"), attribute, accessToken, ct);
         }
 

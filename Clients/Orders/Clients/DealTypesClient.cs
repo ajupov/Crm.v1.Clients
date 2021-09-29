@@ -29,7 +29,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
         }
 
         public Task<List<DealType>> GetListAsync(
-            
+
             IEnumerable<Guid> ids,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -38,7 +38,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
         }
 
         public Task<DealTypeGetPagedListResponse> GetPagedListAsync(
-            
+
             DealTypeGetPagedListRequest request,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -48,7 +48,7 @@ namespace Crm.v1.Clients.Clients.Orders.Clients
 
         public Task<Guid> CreateAsync(DealType type, Dictionary<string, string> headers, CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), type, accessToken, ct);
+            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), type, accessToken, ct);
         }
 
         public Task UpdateAsync(DealType type, Dictionary<string, string> headers, CancellationToken ct = default)

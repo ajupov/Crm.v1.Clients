@@ -23,7 +23,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Clients
         }
 
         public Task<ActivityCommentGetPagedListResponse> GetPagedListAsync(
-            
+
             ActivityCommentGetPagedListRequest request,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -33,7 +33,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Clients
 
         public Task CreateAsync(ActivityComment comment, Dictionary<string, string> headers, CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync(UriBuilder.Combine(_url, "Create"), comment, accessToken, ct);
+            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Create"), comment, accessToken, ct);
         }
     }
 }

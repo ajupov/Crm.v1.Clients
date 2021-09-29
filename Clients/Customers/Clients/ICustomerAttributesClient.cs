@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Clients.Tasks.Models;
-using Crm.v1.Clients.Clients.Tasks.Requests;
-using Crm.v1.Clients.Clients.Tasks.Responses;
+using Crm.v1.Clients.Clients.Customers.Models;
+using Crm.v1.Clients.Clients.Customers.Requests;
+using Crm.v1.Clients.Clients.Customers.Responses;
 
-namespace Crm.v1.Clients.Clients.Tasks.Clients
+namespace Crm.v1.Clients.Clients.Customers.Clients
 {
-    public interface IActivityAttributesClient
+    public interface ICustomerAttributesClient
     {
-        Task<ActivityAttribute> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<CustomerAttribute> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
 
-        Task<List<ActivityAttribute>> GetListAsync(
+        Task<List<CustomerAttribute>> GetListAsync(
             IEnumerable<Guid> ids,
             Dictionary<string, string> headers,
             CancellationToken ct = default);
 
-        Task<ActivityAttributeGetPagedListResponse> GetPagedListAsync(
-            ActivityAttributeGetPagedListRequest request,
+        Task<CustomerAttributeGetPagedListResponse> GetPagedListAsync(
+            CustomerAttributeGetPagedListRequest request,
             Dictionary<string, string> headers,
             CancellationToken ct = default);
 
         Task<Guid> CreateAsync(
-            ActivityAttribute attribute,
+            CustomerAttribute attribute,
             Dictionary<string, string> headers,
             CancellationToken ct = default);
 
         Task UpdateAsync(
-            ActivityAttribute attribute,
+            CustomerAttribute attribute,
             Dictionary<string, string> headers,
             CancellationToken ct = default);
 

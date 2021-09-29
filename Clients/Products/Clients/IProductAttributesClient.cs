@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.Common.All.Types.AttributeType;
 using Crm.v1.Clients.Clients.Products.Models;
 using Crm.v1.Clients.Clients.Products.Requests;
 using Crm.v1.Clients.Clients.Products.Responses;

@@ -30,7 +30,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Clients
         }
 
         public Task<List<ActivityStatus>> GetListAsync(
-            
+
             IEnumerable<Guid> ids,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -39,7 +39,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Clients
         }
 
         public Task<ActivityStatusGetPagedListResponse> GetPagedListAsync(
-            
+
             ActivityStatusGetPagedListRequest request,
             Dictionary<string, string> headers, CancellationToken ct = default)
         {
@@ -49,7 +49,7 @@ namespace Crm.v1.Clients.Clients.Tasks.Clients
 
         public Task<Guid> CreateAsync(ActivityStatus status, Dictionary<string, string> headers, CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), status, accessToken, ct);
+            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), status, accessToken, ct);
         }
 
         public Task UpdateAsync(ActivityStatus status, Dictionary<string, string> headers, CancellationToken ct = default)
