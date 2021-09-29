@@ -28,7 +28,8 @@ namespace Crm.v1.Clients.OAuth.Clients
         public async Task<TokenResponse> GetTokensAsync(
             string username,
             string password,
-            Dictionary<string, string> headers, CancellationToken ct = default)
+            Dictionary<string, string> headers,
+            CancellationToken ct = default)
         {
             var request = new TokenRequest
             {
@@ -49,7 +50,10 @@ namespace Crm.v1.Clients.OAuth.Clients
             return response;
         }
 
-        public async Task<TokenResponse> RefreshTokensAsync(string refreshToken, Dictionary<string, string> headers, CancellationToken ct = default)
+        public async Task<TokenResponse> RefreshTokensAsync(
+            string refreshToken,
+            Dictionary<string, string> headers,
+            CancellationToken ct = default)
         {
             var request = new TokenRequest
             {

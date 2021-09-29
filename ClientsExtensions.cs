@@ -1,8 +1,11 @@
-﻿using Crm.v1.Clients.Clients.Customers.Clients;
-using Crm.v1.Clients.Clients.Orders.Clients;
-using Crm.v1.Clients.Clients.Products.Clients;
-using Crm.v1.Clients.Clients.Tasks.Clients;
+﻿using Crm.v1.Clients.Account.Clients;
+using Crm.v1.Clients.Auth.Clients;
+using Crm.v1.Clients.Customers.Clients;
 using Crm.v1.Clients.OAuth.Clients;
+using Crm.v1.Clients.Orders.Clients;
+using Crm.v1.Clients.Products.Clients;
+using Crm.v1.Clients.Tasks.Clients;
+using Crm.v1.Clients.User.Clients;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Crm.v1.Clients
@@ -26,24 +29,32 @@ namespace Crm.v1.Clients
 
             services
                 .AddSingleton<IOAuthClient, OAuthClient>()
-                .AddSingleton<IActivitiesClient, ActivitiesClient>()
-                .AddSingleton<IActivityChangesClient, ActivityChangesClient>()
-                .AddSingleton<IActivityAttributesClient, ActivityAttributesClient>()
-                .AddSingleton<IActivityAttributeChangesClient, ActivityAttributeChangesClient>()
-                .AddSingleton<IActivityStatusesClient, ActivityStatusesClient>()
-                .AddSingleton<IActivityStatusChangesClient, ActivityStatusChangesClient>()
-                .AddSingleton<IActivityTypesClient, ActivityTypesClient>()
-                .AddSingleton<IActivityTypeChangesClient, ActivityTypeChangesClient>()
-                .AddSingleton<IActivityCommentsClient, ActivityCommentsClient>()
-                .AddSingleton<IDealsClient, DealsClient>()
-                .AddSingleton<IDealChangesClient, DealChangesClient>()
-                .AddSingleton<IDealAttributesClient, DealAttributesClient>()
-                .AddSingleton<IDealAttributeChangesClient, DealAttributeChangesClient>()
-                .AddSingleton<IDealStatusesClient, DealStatusesClient>()
-                .AddSingleton<IDealStatusChangesClient, DealStatusChangesClient>()
-                .AddSingleton<IDealTypesClient, DealTypesClient>()
-                .AddSingleton<IDealTypeChangesClient, DealTypeChangesClient>()
-                .AddSingleton<IDealCommentsClient, DealCommentsClient>()
+                .AddSingleton<IAccountFlagsClient, AccountFlagsClient>()
+                .AddSingleton<IAccountSettingChangesClient, AccountSettingChangesClient>()
+                .AddSingleton<IAccountSettingsClient, AccountSettingsClient>()
+                .AddSingleton<IUserFlagsClient, UserFlagsClient>()
+                .AddSingleton<IUserSettingChangesClient, UserSettingChangesClient>()
+                .AddSingleton<IUserSettingsClient, UserSettingsClient>()
+                .AddSingleton<IAuthClient, AuthClient>()
+                .AddSingleton<IUserInfoClient, UserInfoClient>()
+                .AddSingleton<ITasksClient, TasksClient>()
+                .AddSingleton<ITaskChangesClient, TaskChangesClient>()
+                .AddSingleton<ITaskAttributesClient, TaskAttributesClient>()
+                .AddSingleton<ITaskAttributeChangesClient, TaskAttributeChangesClient>()
+                .AddSingleton<ITaskStatusesClient, TaskStatusesClient>()
+                .AddSingleton<ITaskStatusChangesClient, TaskStatusChangesClient>()
+                .AddSingleton<ITaskTypesClient, TaskTypesClient>()
+                .AddSingleton<ITaskTypeChangesClient, TaskTypeChangesClient>()
+                .AddSingleton<ITaskCommentsClient, TaskCommentsClient>()
+                .AddSingleton<IOrdersClient, OrdersClient>()
+                .AddSingleton<IOrderChangesClient, OrderChangesClient>()
+                .AddSingleton<IOrderAttributesClient, OrderAttributesClient>()
+                .AddSingleton<IOrderAttributeChangesClient, OrderAttributeChangesClient>()
+                .AddSingleton<IOrderStatusesClient, OrderStatusesClient>()
+                .AddSingleton<IOrderStatusChangesClient, OrderStatusChangesClient>()
+                .AddSingleton<IOrderTypesClient, OrderTypesClient>()
+                .AddSingleton<IOrderTypeChangesClient, OrderTypeChangesClient>()
+                .AddSingleton<IOrderCommentsClient, OrderCommentsClient>()
                 .AddSingleton<ICustomersClient, CustomersClient>()
                 .AddSingleton<ICustomerChangesClient, CustomerChangesClient>()
                 .AddSingleton<ICustomerAttributesClient, CustomerAttributesClient>()
