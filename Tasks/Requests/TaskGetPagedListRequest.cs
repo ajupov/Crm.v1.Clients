@@ -38,13 +38,9 @@ namespace Crm.v1.Clients.Tasks.Requests
 
         public List<Guid> StatusIds { get; set; }
 
-        public List<Guid> LeadIds { get; set; }
+        public List<Guid> CustomerIds { get; set; }
 
-        public List<Guid> CompanyIds { get; set; }
-
-        public List<Guid> ContactIds { get; set; }
-
-        public List<Guid> DealIds { get; set; }
+        public List<Guid> OrderIds { get; set; }
 
         public List<Guid> CreateUserIds { get; set; }
 

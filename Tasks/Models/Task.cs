@@ -13,13 +13,9 @@ namespace Crm.v1.Clients.Tasks.Models
 
         public Guid StatusId { get; set; }
 
-        public Guid? LeadId { get; set; }
+        public Guid? CustomerId { get; set; }
 
-        public Guid? CompanyId { get; set; }
-
-        public Guid? ContactId { get; set; }
-
-        public Guid? DealId { get; set; }
+        public Guid? OrderId { get; set; }
 
         public Guid CreateUserId { get; set; }
 
