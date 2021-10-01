@@ -23,7 +23,7 @@ namespace Crm.v1.Clients.Tasks.Clients
 
         public Task<TaskStatusChangeGetPagedListResponse> GetPagedListAsync(
             TaskStatusChangeGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<TaskStatusChangeGetPagedListResponse>(

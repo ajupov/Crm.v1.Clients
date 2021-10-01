@@ -19,7 +19,9 @@ namespace Crm.v1.Clients.Account.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<AccountSetting> GetAsync(Dictionary<string, string> headers, CancellationToken ct = default)
+        public Task<AccountSetting> GetAsync(
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default)
         {
             return _httpClientFactory.GetAsync<AccountSetting>(UriBuilder.Combine(_url, "Get"), null, headers, ct);
         }

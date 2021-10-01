@@ -6,6 +6,8 @@ namespace Crm.v1.Clients.Auth.Clients
 {
     public interface IAuthClient
     {
-        public Task<bool> IsAuthenticatedAsync(Dictionary<string, string> headers, CancellationToken ct = default);
+        public Task<bool> IsAuthenticatedAsync(
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

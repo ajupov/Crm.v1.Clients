@@ -11,9 +11,12 @@ namespace Crm.v1.Clients.Orders.Clients
     {
         Task<OrderCommentGetPagedListResponse> GetPagedListAsync(
             OrderCommentGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
-        Task CreateAsync(OrderComment comment, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task CreateAsync(
+            OrderComment comment,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

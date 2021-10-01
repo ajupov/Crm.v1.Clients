@@ -10,24 +10,39 @@ namespace Crm.v1.Clients.Orders.Clients
 {
     public interface IOrderStatusesClient
     {
-        Task<OrderStatus> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<OrderStatus> GetAsync(
+            Guid id,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
         Task<List<OrderStatus>> GetListAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
         Task<OrderStatusGetPagedListResponse> GetPagedListAsync(
             OrderStatusGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
-        Task<Guid> CreateAsync(OrderStatus status, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<Guid> CreateAsync(
+            OrderStatus status,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task UpdateAsync(OrderStatus status, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task UpdateAsync(
+            OrderStatus status,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task DeleteAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task DeleteAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task RestoreAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task RestoreAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

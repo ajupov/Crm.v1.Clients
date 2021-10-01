@@ -21,21 +21,24 @@ namespace Crm.v1.Clients.Account.Clients
 
         public Task<bool> IsSetAsync(
             AccountFlagType type,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.GetAsync<bool>(UriBuilder.Combine(_url, "IsSet"), new { type }, headers, ct);
         }
 
         public Task<List<AccountFlagType>> GetNotSetListAsync(
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.GetAsync<List<AccountFlagType>>(UriBuilder.Combine(_url, "GetNotSetList"), null,
                 headers, ct);
         }
 
-        public Task SetAsync(AccountFlagType type, Dictionary<string, string> headers, CancellationToken ct = default)
+        public Task SetAsync(
+            AccountFlagType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default)
         {
             return _httpClientFactory.PutJsonAsync(UriBuilder.Combine(_url, "Set"), new { type }, headers, ct);
         }

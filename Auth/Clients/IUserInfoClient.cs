@@ -7,6 +7,6 @@ namespace Crm.v1.Clients.Auth.Clients
 {
     public interface IUserInfoClient
     {
-        public Task<UserInfo> GetAsync(Dictionary<string, string> headers, CancellationToken ct = default);
+        public Task<UserInfo> GetAsync(Dictionary<string, string> headers = default, CancellationToken ct = default);
     }
 }

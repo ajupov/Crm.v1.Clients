@@ -11,24 +11,33 @@ namespace Crm.v1.Clients.Tasks.Clients
 {
     public interface ITasksClient
     {
-        Task<CrmTask> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<CrmTask> GetAsync(Guid id, Dictionary<string, string> headers = default, CancellationToken ct = default);
 
         Task<List<CrmTask>> GetListAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
         Task<TaskGetPagedListResponse> GetPagedListAsync(
             TaskGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
-        Task<Guid> CreateAsync(CrmTask task, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<Guid> CreateAsync(
+            CrmTask task,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task UpdateAsync(CrmTask task, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task UpdateAsync(CrmTask task, Dictionary<string, string> headers = default, CancellationToken ct = default);
 
-        Task DeleteAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task DeleteAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task RestoreAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task RestoreAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

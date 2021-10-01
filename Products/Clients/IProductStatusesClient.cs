@@ -10,24 +10,39 @@ namespace Crm.v1.Clients.Products.Clients
 {
     public interface IProductStatusesClient
     {
-        Task<ProductStatus> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<ProductStatus> GetAsync(
+            Guid id,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
         Task<List<ProductStatus>> GetListAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
         Task<ProductStatusGetPagedListResponse> GetPagedListAsync(
             ProductStatusGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
-        Task<Guid> CreateAsync(ProductStatus group, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<Guid> CreateAsync(
+            ProductStatus group,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task UpdateAsync(ProductStatus group, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task UpdateAsync(
+            ProductStatus group,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task DeleteAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task DeleteAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task RestoreAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task RestoreAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

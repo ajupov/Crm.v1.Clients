@@ -10,7 +10,7 @@ namespace Crm.v1.Clients.Customers.Clients
     {
         Task<CustomerChangeGetPagedListResponse> GetPagedListAsync(
             CustomerChangeGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
     }
 }

@@ -10,24 +10,33 @@ namespace Crm.v1.Clients.Orders.Clients
 {
     public interface IOrderTypesClient
     {
-        Task<OrderType> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<OrderType> GetAsync(Guid id, Dictionary<string, string> headers = default, CancellationToken ct = default);
 
         Task<List<OrderType>> GetListAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
         Task<OrderTypeGetPagedListResponse> GetPagedListAsync(
             OrderTypeGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
-        Task<Guid> CreateAsync(OrderType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<Guid> CreateAsync(
+            OrderType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task UpdateAsync(OrderType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task UpdateAsync(OrderType type, Dictionary<string, string> headers = default, CancellationToken ct = default);
 
-        Task DeleteAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task DeleteAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task RestoreAsync(IEnumerable<Guid> ids, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task RestoreAsync(
+            IEnumerable<Guid> ids,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }

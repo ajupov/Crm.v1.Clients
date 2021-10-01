@@ -7,10 +7,15 @@ namespace Crm.v1.Clients.User.Clients
 {
     public interface IUserFlagsClient
     {
-        Task<bool> IsSetAsync(UserFlagType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<bool> IsSetAsync(
+            UserFlagType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task<List<UserFlagType>> GetNotSetListAsync(Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<List<UserFlagType>> GetNotSetListAsync(
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task SetAsync(UserFlagType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task SetAsync(UserFlagType type, Dictionary<string, string> headers = default, CancellationToken ct = default);
     }
 }

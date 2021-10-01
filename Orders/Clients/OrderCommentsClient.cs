@@ -24,7 +24,7 @@ namespace Crm.v1.Clients.Orders.Clients
 
         public Task<OrderCommentGetPagedListResponse> GetPagedListAsync(
             OrderCommentGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<OrderCommentGetPagedListResponse>(
@@ -33,7 +33,7 @@ namespace Crm.v1.Clients.Orders.Clients
 
         public Task CreateAsync(
             OrderComment comment,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Create"), comment, headers, ct);

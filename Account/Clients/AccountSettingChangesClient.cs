@@ -22,7 +22,7 @@ namespace Crm.v1.Clients.Account.Clients
 
         public Task<AccountSettingChangeGetPagedListResponse> GetPagedListAsync(
             AccountSettingChangeGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<AccountSettingChangeGetPagedListResponse>(

@@ -10,12 +10,12 @@ namespace Crm.v1.Clients.OAuth.Clients
         Task<TokenResponse> GetTokensAsync(
             string username,
             string password,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
 
         Task<TokenResponse> RefreshTokensAsync(
             string refreshToken,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default);
     }
 }

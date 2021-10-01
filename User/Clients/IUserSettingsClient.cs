@@ -7,6 +7,6 @@ namespace Crm.v1.Clients.User.Clients
 {
     public interface IUserSettingsClient
     {
-        Task<UserSetting> GetAsync(Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<UserSetting> GetAsync(Dictionary<string, string> headers = default, CancellationToken ct = default);
     }
 }

@@ -24,7 +24,10 @@ namespace Crm.v1.Clients.Tasks.Clients
             _httpClientFactory = httpClientFactory;
         }
 
-        public Task<TaskType> GetAsync(Guid id, Dictionary<string, string> headers, CancellationToken ct = default)
+        public Task<TaskType> GetAsync(
+            Guid id,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default)
         {
             return _httpClientFactory.GetAsync<TaskType>(
                 UriBuilder.Combine(_url, "Get"), new { id }, headers, ct);
@@ -32,7 +35,7 @@ namespace Crm.v1.Clients.Tasks.Clients
 
         public Task<List<TaskType>> GetListAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<List<TaskType>>(
@@ -41,7 +44,7 @@ namespace Crm.v1.Clients.Tasks.Clients
 
         public Task<TaskTypeGetPagedListResponse> GetPagedListAsync(
             TaskTypeGetPagedListRequest request,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<TaskTypeGetPagedListResponse>(
@@ -50,20 +53,23 @@ namespace Crm.v1.Clients.Tasks.Clients
 
         public Task<Guid> CreateAsync(
             TaskType type,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), type, headers, ct);
         }
 
-        public Task UpdateAsync(TaskType type, Dictionary<string, string> headers, CancellationToken ct = default)
+        public Task UpdateAsync(
+            TaskType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default)
         {
             return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Update"), type, headers, ct);
         }
 
         public Task DeleteAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Delete"), ids, headers, ct);
@@ -71,7 +77,7 @@ namespace Crm.v1.Clients.Tasks.Clients
 
         public Task RestoreAsync(
             IEnumerable<Guid> ids,
-            Dictionary<string, string> headers,
+            Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
             return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Restore"), ids, headers, ct);

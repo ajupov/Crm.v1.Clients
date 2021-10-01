@@ -7,10 +7,18 @@ namespace Crm.v1.Clients.Account.Clients
 {
     public interface IAccountFlagsClient
     {
-        Task<bool> IsSetAsync(AccountFlagType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<bool> IsSetAsync(
+            AccountFlagType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task<List<AccountFlagType>> GetNotSetListAsync(Dictionary<string, string> headers, CancellationToken ct = default);
+        Task<List<AccountFlagType>> GetNotSetListAsync(
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
 
-        Task SetAsync(AccountFlagType type, Dictionary<string, string> headers, CancellationToken ct = default);
+        Task SetAsync(
+            AccountFlagType type,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default);
     }
 }
