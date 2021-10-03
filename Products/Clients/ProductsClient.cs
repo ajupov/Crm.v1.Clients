@@ -57,7 +57,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync<Guid>(_host + "/Products/v1/Update", null, product, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/v1/Update", null, product, headers, ct);
         }
 
         public Task HideAsync(
@@ -65,7 +65,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync<Guid>(_host + "/Products/v1/Hide", null, ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/v1/Hide", null, ids, headers, ct);
         }
 
         public Task ShowAsync(
@@ -73,7 +73,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync<Guid>(_host + "/Products/v1/Show", null, ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/v1/Show", null, ids, headers, ct);
         }
 
         public Task DeleteAsync(
@@ -81,7 +81,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync<Guid>(_host + "/Products/v1/Delete", null, ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/v1/Delete", null, ids, headers, ct);
         }
 
         public Task RestoreAsync(
@@ -89,7 +89,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync<Guid>(_host + "/Products/v1/Restore", null, ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/v1/Restore", null, ids, headers, ct);
         }
     }
 }
