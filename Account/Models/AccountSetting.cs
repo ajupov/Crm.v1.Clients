@@ -8,6 +8,8 @@ namespace Crm.v1.Clients.Account.Models
 
         public Guid UserId { get; set; }
 
+        public AccountSettingActivityIndustry? ActivityIndustry { get; set; }
+
         public DateTime CreateDateTime { get; set; }
 
         public DateTime? ModifyDateTime { get; set; }

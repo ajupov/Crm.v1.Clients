@@ -2,8 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Ajupov.Utils.All.Http.JsonHttpClient;
-using Crm.v1.Clients.Account.Requests;
-using Crm.v1.Clients.Account.Responses;
+using Crm.v1.Clients.Account.Models;
 using Microsoft.Extensions.Options;
 
 namespace Crm.v1.Clients.Account.Clients

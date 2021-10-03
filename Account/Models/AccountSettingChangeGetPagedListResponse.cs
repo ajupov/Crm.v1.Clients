@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Crm.v1.Clients.Account.Models;
 
-namespace Crm.v1.Clients.Account.Responses
+namespace Crm.v1.Clients.Account.Models
 {
     public class AccountSettingChangeGetPagedListResponse
     {
