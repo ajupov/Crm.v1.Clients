@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ajupov.Utils.All.Http;
+using Ajupov.Utils.All.Http.JsonHttpClient;
 using Crm.v1.Clients.Customers.Models;
-using Crm.v1.Clients.Customers.Requests;
-using Crm.v1.Clients.Customers.Responses;
 using Microsoft.Extensions.Options;
-using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
 namespace Crm.v1.Clients.Customers.Clients
 {
     public class CustomerSourcesClient : ICustomerSourcesClient
     {
-        private readonly string _url;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _host;
+        private readonly IJsonHttpClientFactory _factory;
 
-        public CustomerSourcesClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public CustomerSourcesClient(IOptions<ClientsOptions> options, IJsonHttpClientFactory factory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "Customers/Sources/v1");
-            _httpClientFactory = httpClientFactory;
+            _host = options.Value.Host;
+            _factory = factory;
         }
 
         public Task<CustomerSource> GetAsync(
@@ -28,8 +24,7 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.GetAsync<CustomerSource>(
-                UriBuilder.Combine(_url, "Get"), new { id }, headers, ct);
+            return _factory.GetAsync<CustomerSource>(_host + "/Customers/Sources/v1/Get", new { id }, headers, ct);
         }
 
         public Task<List<CustomerSource>> GetListAsync(
@@ -37,8 +32,8 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<CustomerSource>>(
-                UriBuilder.Combine(_url, "GetList"), ids, headers, ct);
+            return _factory.PostAsync<List<CustomerSource>>(
+                _host + "/Customers/Sources/v1/GetList", null, ids, headers, ct);
         }
 
         public Task<CustomerSourceGetPagedListResponse> GetPagedListAsync(
@@ -46,8 +41,8 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<CustomerSourceGetPagedListResponse>(
-                UriBuilder.Combine(_url, "GetPagedList"), request, headers, ct);
+            return _factory.PostAsync<CustomerSourceGetPagedListResponse>(
+                _host + "/Customers/Sources/v1/GetPagedList", null, request, headers, ct);
         }
 
         public Task<Guid> CreateAsync(
@@ -55,7 +50,7 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), source, headers, ct);
+            return _factory.PostAsync<Guid>(_host + "/Customers/Sources/v1/Create", null, source, headers, ct);
         }
 
         public Task UpdateAsync(
@@ -63,7 +58,7 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Update"), source, headers, ct);
+            return _factory.PatchAsync(_host + "/Customers/Sources/v1/Update", null, source, headers, ct);
         }
 
         public Task DeleteAsync(
@@ -71,7 +66,7 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Delete"), ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Customers/Sources/v1/Delete", null, ids, headers, ct);
         }
 
         public Task RestoreAsync(
@@ -79,7 +74,7 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Restore"), ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Customers/Sources/v1/Restore", null, ids, headers, ct);
         }
     }
 }

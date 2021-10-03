@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Tasks.Requests;
-using Crm.v1.Clients.Tasks.Responses;
+using Crm.v1.Clients.Tasks.Models;
 using CrmTaskStatus = Crm.v1.Clients.Tasks.Models.TaskStatus;
+using Task = System.Threading.Tasks.Task;
 
 namespace Crm.v1.Clients.Tasks.Clients
 {

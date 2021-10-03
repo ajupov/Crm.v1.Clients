@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.User.Requests;
-using Crm.v1.Clients.User.Responses;
+using Crm.v1.Clients.User.Models;
 
 namespace Crm.v1.Clients.User.Clients
 {

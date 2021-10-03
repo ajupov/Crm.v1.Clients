@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ajupov.Utils.All.Http;
+using Ajupov.Utils.All.Http.JsonHttpClient;
 using Crm.v1.Clients.Products.Models;
-using Crm.v1.Clients.Products.Requests;
-using Crm.v1.Clients.Products.Responses;
 using Microsoft.Extensions.Options;
-using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
 namespace Crm.v1.Clients.Products.Clients
 {
     public class ProductCategoriesClient : IProductCategoriesClient
     {
-        private readonly string _url;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _host;
+        private readonly IJsonHttpClientFactory _factory;
 
-        public ProductCategoriesClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public ProductCategoriesClient(IOptions<ClientsOptions> options, IJsonHttpClientFactory factory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "Products/Categories/v1");
-            _httpClientFactory = httpClientFactory;
+            _host = options.Value.Host;
+            _factory = factory;
         }
 
         public Task<ProductCategory> GetAsync(
@@ -28,8 +24,8 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.GetAsync<ProductCategory>(
-                UriBuilder.Combine(_url, "Get"), new { id }, headers, ct);
+            return _factory.GetAsync<ProductCategory>(
+                _host + "/Products/Categories/v1/Get", new { id }, headers, ct);
         }
 
         public Task<List<ProductCategory>> GetListAsync(
@@ -37,8 +33,8 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<List<ProductCategory>>(
-                UriBuilder.Combine(_url, "GetList"), ids, headers, ct);
+            return _factory.PostAsync<List<ProductCategory>>(
+                _host + "/Products/Categories/v1/GetList", null, ids, headers, ct);
         }
 
         public Task<ProductCategoryGetPagedListResponse> GetPagedListAsync(
@@ -46,8 +42,8 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<ProductCategoryGetPagedListResponse>(
-                UriBuilder.Combine(_url, "GetPagedList"), request, headers, ct);
+            return _factory.PostAsync<ProductCategoryGetPagedListResponse>(
+                _host + "/Products/Categories/v1/GetPagedList", null, request, headers, ct);
         }
 
         public Task<Guid> CreateAsync(
@@ -55,7 +51,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<Guid>(UriBuilder.Combine(_url, "Create"), category, headers, ct);
+            return _factory.PostAsync<Guid>(_host + "/Products/Categories/v1/Create", null, category, headers, ct);
         }
 
         public Task UpdateAsync(
@@ -63,7 +59,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Update"), category, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/Categories/v1/Update", null, category, headers, ct);
         }
 
         public Task DeleteAsync(
@@ -71,7 +67,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Delete"), ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/Categories/v1/Delete", null, ids, headers, ct);
         }
 
         public Task RestoreAsync(
@@ -79,7 +75,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PatchJsonAsync(UriBuilder.Combine(_url, "Restore"), ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/Categories/v1/Restore", null, ids, headers, ct);
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ajupov.Utils.All.Http;
+using Ajupov.Utils.All.Http.JsonHttpClient;
 using Crm.v1.Clients.User.Models;
 using Microsoft.Extensions.Options;
 
@@ -10,13 +9,13 @@ namespace Crm.v1.Clients.User.Clients
 {
     public class UserFlagsClient : IUserFlagsClient
     {
-        private readonly string _url;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _host;
+        private readonly IJsonHttpClientFactory _factory;
 
-        public UserFlagsClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public UserFlagsClient(IOptions<ClientsOptions> options, IJsonHttpClientFactory factory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "User/Flags/v1");
-            _httpClientFactory = httpClientFactory;
+            _host = options.Value.Host;
+            _factory = factory;
         }
 
         public Task<bool> IsSetAsync(
@@ -24,15 +23,15 @@ namespace Crm.v1.Clients.User.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.GetAsync<bool>(UriBuilder.Combine(_url, "IsSet"), new { type }, headers, ct);
+            return _factory.GetAsync<bool>(_host + "/User/Flags/v1/IsSet", new { type }, headers, ct);
         }
 
         public Task<List<UserFlagType>> GetNotSetListAsync(
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.GetAsync<List<UserFlagType>>(UriBuilder.Combine(_url, "GetNotSetList"), null,
-                headers, ct);
+            return _factory.GetAsync<List<UserFlagType>>(
+                _host + "/User/Flags/v1/GetNotSetList", null, headers, ct);
         }
 
         public Task SetAsync(
@@ -40,7 +39,8 @@ namespace Crm.v1.Clients.User.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PutJsonAsync(UriBuilder.Combine(_url, "Set"), new { type }, headers, ct);
+            return _factory.PutAsync(
+                _host + "/User/Flags/v1/Set", null, new { type }, headers, ct);
         }
     }
 }

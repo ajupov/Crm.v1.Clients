@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Crm.v1.Clients.Tasks.Requests;
-using Crm.v1.Clients.Tasks.Responses;
+using Crm.v1.Clients.Tasks.Models;
 using CrmTask = Crm.v1.Clients.Tasks.Models.Task;
 using Task = System.Threading.Tasks.Task;
 

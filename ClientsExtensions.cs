@@ -1,4 +1,6 @@
-﻿using Crm.v1.Clients.Account.Clients;
+﻿using Ajupov.Utils.All.Http.FormDataHttpClient;
+using Ajupov.Utils.All.Http.JsonHttpClient;
+using Crm.v1.Clients.Account.Clients;
 using Crm.v1.Clients.Auth.Clients;
 using Crm.v1.Clients.Customers.Clients;
 using Crm.v1.Clients.OAuth.Clients;
@@ -19,13 +21,19 @@ namespace Crm.v1.Clients
             string oauthHost = ClientsDefaults.IdentityHost)
         {
             services
-                .AddHttpClient()
-                .Configure<ClientsSettings>(settings =>
+                .Configure<ClientsOptions>(settings => { settings.Host = apiHost; })
+                .Configure<OAuthClientsOptions>(settings =>
                 {
-                    settings.ApiHost = apiHost;
-                    settings.OAuthHost = oauthHost;
+                    settings.Host = oauthHost;
                     settings.ClientId = clientId;
                 });
+
+            services
+                .AddHttpClient();
+
+            services
+                .AddSingleton<IJsonHttpClientFactory, JsonHttpClientFactory>()
+                .AddSingleton<IFormDataHttpClientFactory, FormDataHttpClientFactory>();
 
             services
                 .AddSingleton<IOAuthClient, OAuthClient>()

@@ -1,26 +1,22 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ajupov.Utils.All.Http;
+using Ajupov.Utils.All.Http.JsonHttpClient;
 using Crm.v1.Clients.Tasks.Models;
-using Crm.v1.Clients.Tasks.Requests;
-using Crm.v1.Clients.Tasks.Responses;
 using Microsoft.Extensions.Options;
 using Task = System.Threading.Tasks.Task;
-using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
 namespace Crm.v1.Clients.Tasks.Clients
 {
     public class TaskCommentsClient : ITaskCommentsClient
     {
-        private readonly string _url;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _host;
+        private readonly IJsonHttpClientFactory _factory;
 
-        public TaskCommentsClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public TaskCommentsClient(IOptions<ClientsOptions> options, IJsonHttpClientFactory factory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "Tasks/Comments/v1");
-            _httpClientFactory = httpClientFactory;
+            _host = options.Value.Host;
+            _factory = factory;
         }
 
         public Task<TaskCommentGetPagedListResponse> GetPagedListAsync(
@@ -28,8 +24,8 @@ namespace Crm.v1.Clients.Tasks.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<TaskCommentGetPagedListResponse>(
-                UriBuilder.Combine(_url, "GetPagedList"), request, headers, ct);
+            return _factory.PostAsync<TaskCommentGetPagedListResponse>(
+                _host + "/Tasks/Comments/v1/GetPagedList", null, request, headers, ct);
         }
 
         public Task CreateAsync(
@@ -37,7 +33,7 @@ namespace Crm.v1.Clients.Tasks.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync(UriBuilder.Combine(_url, "Create"), comment, headers, ct);
+            return _factory.PostAsync(_host + "/Tasks/Comments/v1/Create", null, comment, headers, ct);
         }
     }
 }

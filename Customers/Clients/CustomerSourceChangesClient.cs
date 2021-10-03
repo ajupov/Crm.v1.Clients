@@ -1,24 +1,21 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ajupov.Utils.All.Http;
-using Crm.v1.Clients.Customers.Requests;
-using Crm.v1.Clients.Customers.Responses;
+using Ajupov.Utils.All.Http.JsonHttpClient;
+using Crm.v1.Clients.Customers.Models;
 using Microsoft.Extensions.Options;
-using UriBuilder = Ajupov.Utils.All.Http.UriBuilder;
 
 namespace Crm.v1.Clients.Customers.Clients
 {
     public class CustomerSourceChangesClient : ICustomerSourceChangesClient
     {
-        private readonly string _url;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _host;
+        private readonly IJsonHttpClientFactory _factory;
 
-        public CustomerSourceChangesClient(IOptions<ClientsSettings> options, IHttpClientFactory httpClientFactory)
+        public CustomerSourceChangesClient(IOptions<ClientsOptions> options, IJsonHttpClientFactory factory)
         {
-            _url = UriBuilder.Combine(options.Value.ApiHost, "Customers/Sources/Changes/v1");
-            _httpClientFactory = httpClientFactory;
+            _host = options.Value.Host;
+            _factory = factory;
         }
 
         public Task<CustomerSourceChangeGetPagedListResponse> GetPagedListAsync(
@@ -26,8 +23,8 @@ namespace Crm.v1.Clients.Customers.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _httpClientFactory.PostJsonAsync<CustomerSourceChangeGetPagedListResponse>(
-                UriBuilder.Combine(_url, "GetPagedList"), request, headers, ct);
+            return _factory.PostAsync<CustomerSourceChangeGetPagedListResponse>(
+                _host + "/Customers/Sources/Changes/v1/GetPagedList", null, request, headers, ct);
         }
     }
 }
