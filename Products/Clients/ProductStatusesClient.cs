@@ -67,7 +67,7 @@ namespace Crm.v1.Clients.Products.Clients
             Dictionary<string, string> headers = default,
             CancellationToken ct = default)
         {
-            return _factory.PatchAsync(_host + "Products/Statuses/v1/Delete", null, ids, headers, ct);
+            return _factory.PatchAsync(_host + "/Products/Statuses/v1/Delete", null, ids, headers, ct);
         }
 
         public Task RestoreAsync(

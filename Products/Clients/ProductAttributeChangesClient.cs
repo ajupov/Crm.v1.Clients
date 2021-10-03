@@ -26,7 +26,7 @@ namespace Crm.v1.Clients.Products.Clients
             CancellationToken ct = default)
         {
             return _factory.PostAsync<ProductAttributeChangeGetPagedListResponse>(
-                _host + "Products/Attributes/Changes/v1/GetPagedList", null, request, headers, ct);
+                _host + "/Products/Attributes/Changes/v1/GetPagedList", null, request, headers, ct);
         }
     }
 }
