@@ -24,5 +24,14 @@ namespace Crm.v1.Clients.Account.Clients
         {
             return _factory.GetAsync<AccountSetting>(_host + "/Account/Settings/v1/Get", null, headers, ct);
         }
+
+        public Task<AccountSetting> SetActivityIndustryAsync(
+            AccountSettingActivityIndustry industry,
+            Dictionary<string, string> headers = default,
+            CancellationToken ct = default)
+        {
+            return _factory.PutAsync<AccountSetting>(
+                _host + "/Account/Settings/v1/SetActivityIndustry", null, new { industry }, headers, ct);
+        }
     }
 }
