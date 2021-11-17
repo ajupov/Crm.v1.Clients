@@ -6,6 +6,7 @@ using Crm.v1.Clients.Customers.Clients;
 using Crm.v1.Clients.OAuth.Clients;
 using Crm.v1.Clients.Orders.Clients;
 using Crm.v1.Clients.Products.Clients;
+using Crm.v1.Clients.Suppliers.Clients;
 using Crm.v1.Clients.Tasks.Clients;
 using Crm.v1.Clients.User.Clients;
 using Microsoft.Extensions.DependencyInjection;
@@ -77,7 +78,12 @@ namespace Crm.v1.Clients
                 .AddSingleton<IProductCategoriesClient, ProductCategoriesClient>()
                 .AddSingleton<IProductCategoryChangesClient, ProductCategoryChangesClient>()
                 .AddSingleton<IProductStatusesClient, ProductStatusesClient>()
-                .AddSingleton<IProductStatusChangesClient, ProductStatusChangesClient>();
+                .AddSingleton<IProductStatusChangesClient, ProductStatusChangesClient>()
+                .AddSingleton<ISuppliersClient, SuppliersClient>()
+                .AddSingleton<ISupplierChangesClient, SupplierChangesClient>()
+                .AddSingleton<ISupplierAttributesClient, SupplierAttributesClient>()
+                .AddSingleton<ISupplierAttributeChangesClient, SupplierAttributeChangesClient>()
+                .AddSingleton<ISupplierCommentsClient, SupplierCommentsClient>();
         }
     }
 }
