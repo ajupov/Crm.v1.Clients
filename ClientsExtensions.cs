@@ -6,6 +6,7 @@ using Crm.v1.Clients.Customers.Clients;
 using Crm.v1.Clients.OAuth.Clients;
 using Crm.v1.Clients.Orders.Clients;
 using Crm.v1.Clients.Products.Clients;
+using Crm.v1.Clients.Stock.Clients;
 using Crm.v1.Clients.Suppliers.Clients;
 using Crm.v1.Clients.Tasks.Clients;
 using Crm.v1.Clients.User.Clients;
@@ -83,7 +84,15 @@ namespace Crm.v1.Clients
                 .AddSingleton<ISupplierChangesClient, SupplierChangesClient>()
                 .AddSingleton<ISupplierAttributesClient, SupplierAttributesClient>()
                 .AddSingleton<ISupplierAttributeChangesClient, SupplierAttributeChangesClient>()
-                .AddSingleton<ISupplierCommentsClient, SupplierCommentsClient>();
+                .AddSingleton<ISupplierCommentsClient, SupplierCommentsClient>()
+                .AddSingleton<IStockArrivalsClient, StockArrivalsClient>()
+                .AddSingleton<IStockArrivalChangesClient, StockArrivalChangesClient>()
+                .AddSingleton<IStockBalancesClient, StockBalancesClient>()
+                .AddSingleton<IStockBalanceChangesClient, StockBalanceChangesClient>()
+                .AddSingleton<IStockConsumptionsClient, StockConsumptionsClient>()
+                .AddSingleton<IStockConsumptionChangesClient, StockConsumptionChangesClient>()
+                .AddSingleton<IStockRoomsClient, StockRoomsClient>()
+                .AddSingleton<IStockRoomChangesClient, StockRoomChangesClient>();
         }
     }
 }
