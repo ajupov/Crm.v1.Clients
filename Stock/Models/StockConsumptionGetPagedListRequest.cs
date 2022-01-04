@@ -21,6 +21,8 @@ namespace Crm.v1.Clients.Stock.Models
 
         public List<Guid> OrderIds { get; set; }
 
+        public List<Guid> ItemsRoomIds { get; set; }
+
         public List<Guid> ItemsProductIds { get; set; }
 
         public int Offset { get; set; }
