@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <PackageVersion>2.7.2</PackageVersion>
+        <PackageVersion>2.7.3</PackageVersion>
         <Authors>U. Ayupov</Authors>
         <RepositoryUrl>https://github.com/ajupov/Crm.V1.Clients.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>

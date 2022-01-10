@@ -13,7 +13,11 @@ namespace Crm.v1.Clients.Stock.Models
 
         public StockArrivalType Type { get; set; }
 
+        public Guid? SupplierId { get; set; }
+
         public Guid? OrderId { get; set; }
+
+        public Guid? InventoryId { get; set; }
 
         public bool IsDeleted { get; set; }
 

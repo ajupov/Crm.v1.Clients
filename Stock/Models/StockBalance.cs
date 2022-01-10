@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Crm.v1.Clients.Stock.Models
 {
@@ -23,8 +22,7 @@ namespace Crm.v1.Clients.Stock.Models
 
         public DateTime? ModifyDateTime { get; set; }
 
+        // public List<Guid> UniqueElementIds { get; set; }
         public StockRoom Room { get; set; }
-
-        public List<Guid> UniqueElementIds { get; set; }
     }
 }
